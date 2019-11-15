@@ -1,9 +1,11 @@
 def solution(password):
-    length = len(password)
+    length = len(password) # 암호길이
     for i in range(length - 2):
-        first_check = ord(password[i + 1]) - ord(password[i])
-        second_check = ord(password[i]) - ord(password[i+1])
+        first_check = ord(password[i + 1]) - ord(password[i]) #
+        second_check = ord(password[i+2]) - ord(password[i+1]) #i+1
         if first_check == second_check and (first_check == 1 or first_check == -1):
+            #first_ 와 second_ 는 부호가 같아야 연속된 숫자이다.
+            #and 조건으로 first_의 부호가 1 또는 -1인지 확인해야 한다.
             return False
     return True
 
